@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CodeCheck — Code Error Detector</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<header><div class="brand"><div class="logo">&lt;/&gt;</div>CodeCheck</div><div class="tag">● Runs locally in your browser</div></header>
+<main>
+<section class="hero"><div class="eyebrow">Developer toolkit</div><h1>Find bugs before they find you.</h1><p>Paste your code, choose its language, and run a quick static check. Review issues, line numbers, and practical suggestions in one place.</p></section>
+<div class="toolbar">
+<label for="language" class="hint">LANGUAGE</label>
+<select id="language" aria-label="Programming language">
+<option value="javascript">JavaScript</option><option value="python">Python</option><option value="json">JSON</option><option value="html">HTML</option><option value="css">CSS</option><option value="c">C</option><option value="cpp">C++</option><option value="java">Java</option><option value="arduino">Arduino / ESP32 (C++)</option>
+</select>
+<button class="primary" id="analyze">▶ Analyze code</button><button class="subtle" id="sample">Load sample</button><button class="subtle" id="copy">Copy code</button><button class="subtle danger" id="clear">Clear</button><div class="spacer"></div><span class="hint" id="languageHint">JavaScript syntax check</span>
+</div>
+<div class="workspace">
+<section class="editor-panel">
+<div class="panel-head"><span><span class="dots"><i></i><i></i><i></i></span> &nbsp; editor</span><span id="lineCount">1 line</span></div>
+<div class="editor-wrap"><div class="line-numbers" id="lineNumbers">1</div><textarea id="code" class="editor" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Code editor" placeholder="// Write or paste your code here..."></textarea></div>
+<div class="editor-footer"><span>Tip: Ctrl + Enter to analyze</span><span id="charCount">0 characters</span></div>
+</section>
+<section class="results">
+<div class="results-top"><h2>Analysis results</h2><span class="count" id="issueCount">Not run</span></div>
+<div class="summary"><div class="status-icon" id="statusIcon">✓</div><div><strong id="statusTitle">Ready to inspect</strong><span id="statusText">Run analysis to see detected issues.</span></div></div>
+<div class="issues" id="issues"><div class="empty"><div class="big">⌕</div><strong>No analysis yet</strong><p>Choose a language and click Analyze code.</p></div></div>
+</section>
+</div>
+<div class="below">
+<div class="info-card"><h3>What this checker can do</h3><p>It uses browser-native parsing where available and lightweight static rules for other languages. Results are guidance, not a guarantee that the program is correct.</p><ul><li>JavaScript: compiler syntax check</li><li>JSON: strict parse check</li><li>HTML/CSS: structural and common-rule checks</li><li>Python, C/C++, Java, Arduino: common syntax-pattern checks</li></ul></div>
+<div class="info-card"><h3>Important limitations</h3><p>This is a front-end checker; it does not execute your program or compile every language. It may miss logic bugs, library/API errors, hardware wiring issues, and some valid syntax. For full diagnostics, use the language's official compiler or linter too.</p></div>
+</div>
+</main>
+<footer>CodeCheck · Your code stays in this browser page. No upload or account required.</footer>
+<script src="app.js"></script>
+
+</body>
+</html>
